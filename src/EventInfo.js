@@ -19,7 +19,7 @@ const EventInfo = ({event, handleCloseEventClick}) => {
 
     return ( 
         <div className="event-info">
-            <button onClick={handleCloseEventClick} className="close-event-info"><MdClose size="1.3em" /></button>
+            <button onClick={handleCloseEventClick} className="close-event-info btn-1"><MdClose size="1.3em" /></button>
             <h2>{event.title}</h2>
             {/* {event.photo_responses.map(photo => (
                 <img className="photo" src={photo.photo_url}></img>

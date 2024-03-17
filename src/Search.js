@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ListEvents from "./ListEvents";
 import EventInfo from "./EventInfo";
 import { FaSearch } from "react-icons/fa";
@@ -8,6 +8,15 @@ const Search = () => {
     const [prompt, setPrompt] = useState("");
     const [events, setEvents] = useState(null);
     const [activeEvent, setActiveEvent] = useState(null);
+
+    useEffect(() => {
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                handleCloseEventListClick();
+            }
+        })
+    },[]) 
+
 
     const handleSearchClick = (e) => {
         e.preventDefault();
@@ -35,12 +44,16 @@ const Search = () => {
         setActiveEvent(event);
     }
 
+    const handleCloseEventListClick = () => {
+        setEvents(null);
+    }
+
     return ( 
         <div className="search-box">
         
             <form onSubmit={handleSearchClick}>
                 <div className="search-container">
-                    <FaSearch id="search-icon" size="2em" />
+                    <FaSearch id="search-icon" size="1.5em" />
                     <input placeholder="Search"
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
@@ -49,7 +62,7 @@ const Search = () => {
             </form>
             
             
-            {events && <ListEvents events={events} handleEventClick = {handleEventClick} />}
+            {events && <ListEvents events={events} handleEventClick = {handleEventClick} handleCloseEventListClick = {handleCloseEventListClick} activeEvent = {activeEvent} />}
             
             {activeEvent && <EventInfo event={activeEvent} handleCloseEventClick = {handleCloseEventClick} />}
             

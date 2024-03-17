@@ -65,12 +65,21 @@ code {
   width: 300px;
   padding: 10px;
   border-radius: 10px;
+  position: relative;
 }
 
 .event-list .item {
-  background-color: bisque;
+  background-color: #ffe4c4;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.event-list .item.selected-item {
+  background-color: #f9ca91;
+}
+
+.events-items-container{
+  margin-top: 40px;
 }
 
 .event-info {
@@ -94,7 +103,17 @@ code {
   position: absolute;
   right: 0px;
   top: 0px;
-  margin: 10px 10px;
+  
+  
+}
+
+.close-events-list {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.btn-1 {
   background-color: #c81d25;
   color: white;
   border: none;
@@ -105,5 +124,6 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 10px;
   cursor: pointer;
 }
