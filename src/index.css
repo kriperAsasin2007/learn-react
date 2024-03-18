@@ -127,3 +127,40 @@ code {
   margin: 10px 10px;
   cursor: pointer;
 }
+
+.images-container .arrow {
+  border-radius: 5px;
+  border: none;
+  
+  
+}
+
+.images-container .arrow-container {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  display: flex;
+}
+
+.images-container:hover .arrow-r {
+  opacity: 0.8;
+}
+
+.images-container:hover .arrow-l {
+  opacity: 0.8;
+}
+
+.arrow-l {
+  margin-left: 10px;
+  position: absolute;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.arrow-r {
+  margin-right: 10px;
+  position: absolute;
+  right: 0px;
+  transition: 0.3s;
+  opacity: 0;
+}
